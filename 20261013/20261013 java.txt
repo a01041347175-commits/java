@@ -1,0 +1,24 @@
+Java
+
+- 웹 어플리케이션 개발에 주로 사용된다.
+
+학습 순서
+- java + spring framework(legacy, boot) + DB
+- 코딩툴 : eclipse, intellij
+- JDK(java development kit)
+
+- 자연어 코딩 > 소스파일
+	|
+- 바이트 코드
+	|
+- 이진수
+	|
+- 컴퓨터
+
+- java.exe : JVM(java virtual machine) 
+- java : App를 개발, os에 상관없이 실행이 가능 but C/C++로 개발하면 JVM이 필요 없다 -> 속도가 빠르다
+- jdk, jre, jvm
+- jdk 환경변수 : 어디에서나 java App를 개발하고 실행할 수 있도록 설정 하는것.
+
+
+이클립스, 자바설치 필요, 환경변수 설정
