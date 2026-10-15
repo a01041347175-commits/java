@@ -96,7 +96,7 @@ public class MainClass {
 		System.out.println("n1: " + n1);
 		System.out.println("n2: " + n2);
 		
-		// Q 가로와 세로 변수를 각각 만들고 방의 넓이를 구하라
+		// Q 가로와 세로 변수를 각각 만들고 방의 넓이를 구하시오
 		int width;
 		int height;
 		width = 100;
