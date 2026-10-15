@@ -89,8 +89,8 @@ public class MainClass {
 		int n2 = 20;
 		
 		// Q n1과 n2의 값을 교환
-		int n0 = 0;
-		n0 = n1;
+		int n0 = n1;
+		// n0 = n1;
 		n1 = n2;
 		n2 = n0;
 		System.out.println("n1: " + n1);
