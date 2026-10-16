@@ -64,7 +64,7 @@ public final class PrintFClass {
 		System.out.printf("이름: %s, 나이: %d, 몸무게: %f, 신장: %f", 
 							mName, mAge, mWeight, mHeight);
 		
-		scanner.close();
+		scanner.close();  
 		
 		
 	}
