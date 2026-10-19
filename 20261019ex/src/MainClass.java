@@ -37,7 +37,7 @@ public class MainClass {
 		System.out.printf("num5: %04d %n", num5);
 		System.out.printf("num6: %04d %n", num6);
 		
-		// 4. [argument_index$] : 데이터 적용 위치를 지정한다.
+		// 4. [argument_index] : 데이터 적용 위치를 지정한다.
 		int num7 = 1;
 		int num8 = 2;
 		int num9 = 3;
