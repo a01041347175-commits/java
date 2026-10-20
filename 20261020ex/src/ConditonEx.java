@@ -145,6 +145,7 @@ public class ConditonEx {
 		final int NORMAL_GRADE = 1;
 		final int VIP_GRADE = 2;
 		final int VVIP_GRADE = 3;
+		final float VVVIP_GRADE = 4.0f;
 		
 		System.out.println("등급입력: 1. NORMAL    2. VIP    3. VVIP");
 		int customerGrade = scanner.nextInt();
@@ -175,7 +176,14 @@ public class ConditonEx {
 		case NORMAL_GRADE:
 			System.out.println("월 문자 50개 무료 증정");
 			break;
-
+		
+//		case VVVIP_GRADE:
+//			System.out.println("asdasdasd");
+//			break;	
+			
+		default:
+			System.out.println("잘못 입력하셨습니다.");
+			break;
 		}
 		
 		scanner.close();
