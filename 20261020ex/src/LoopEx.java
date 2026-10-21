@@ -51,16 +51,106 @@ public class LoopEx {
 		//}
 		
 		// 전체 구구단 (가로모드, 세로모드) 출력
-		int j = 1;
-		for (; j < 10; j++) {
-			for (int i = 1; i < 10; i++) {
-				System.out.println(String.format("%d * %d = %d%n", j, i, (j * i)));
+		
+//		for (int j = 2; j < 10; j++) {
+//			for (int i = 1; i < 10; i++) {
+//				System.out.println(String.format("%d * %d = %d%n", j, i, (j * i)));
+//			
+//			}
+//		}
+		
+//		for (int j = 1; j < 10; j++) {
+//			for (int i = 2; i < 10; i++) {
+//				if (i == 9) {
+//					System.out.printf("%d * %d = %d%n", i, j, (i * j));
+//				} else {
+//					System.out.printf("%d * %d = %d\t", i, j, (i * j));
+//				}
+//			}
+//		}
+		
+
+		
+//		for (double d = 0.0; d < 1; d += 0.1) {
+//			System.out.printf("d: %f \n", d);
+//		}
+		
+		// (중요) 중첩 for문을 이용할때 절대 3단계 이상은 사용하지 말자
+//		for (int i = 0; i < 10; i++) {
+//			for (int j = 0; j < 10; j++) {
+//				for (int k = 0; k < 10; k ++) {
+//					
+//				}
+//			}
+//		}
+		
+		/*
+		 * *
+		 * **
+		 * ***
+		 * ****
+		 * *****
+		 */
+//		for (int i = 1; i <= 5; i++) {
+//			
+//			for (int j = 0; j < i; j++) {
+//				System.out.print("*");
+//			}
+//			
+//			System.out.println();		
+//		}
+//		
+//		for (int i = 1; i <= 5; i++) {
+//			
+//			for (int j = 0; j <= 5 - i; j++) {
+//				System.out.print("*");
+//			
+//			}
+//			System.out.println();
+//		}
+//		
+//		for (int i = 1; i <= 5; i++) {
+//			
+//			for (int j = 0; j < 5 -i; j++) {
+//				System.out.print(" ");
+//				
+//			}
+//			for (int k = 0; k < i; k++) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+		
+		// (심화)사용자가 정수를 입력하면 수만큼의 줄수의 트리모양 * 출력하라
+		
+		// 달력 만들기
+		System.out.println("MON\tTUE\tWED\tTHU\tFRI\tSAT\tSUN");
+		int offset = 3;
+		int day = 1;
+		for (int i = 0; i < 5; i++) {
 			
+			for (int j = 0; j < offset; j++) {
+				System.out.print(String.format("%3c\t", '-'));
 			}
+			
+			for (int j = 0; j < 7 - offset; j++) {
+				
+				if (day <= 30) {
+						System.out.print(String.format("%3d\t", day));
+					day++;
+					
+				} else {
+					System.out.print(String.format("%3c\t", '-'));	
+				}
+			}
+			offset = 0;
+			System.out.println();
+			
+			
+			
 		}
 		
 		
-				
 		//scanner.close();
 		
 		
