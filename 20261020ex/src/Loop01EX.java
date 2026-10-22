@@ -49,22 +49,24 @@ public class Loop01EX {
 		*/
 		
 		Scanner scanner = new Scanner(System.in);
+//		
+//		int condition = 0;
+//		
+//		do {
+//			System.out.println("우유를 배송");
+//			System.out.println("정기배송 진행 여부 선택");
+//			
+//			System.out.println("1. 맛있다.    2. 맛없다.");
+//			condition = scanner.nextInt();
+//			
+//			if (condition == 2) {
+//				System.out.println("배송중지");
+//			}
+//			
+//		} while (condition == 1);
 		
-		int condition = 0;
 		
-		do {
-			System.out.println("우유를 배송");
-			System.out.println("정기배송 진행 여부 선택");
-			
-			System.out.println("1. 맛있다.    2. 맛없다.");
-			condition = scanner.nextInt();
-			
-			if (condition == 2) {
-				System.out.println("배송중지");
-			}
-			
-		} while (condition == 1);
-		
+	
 		
 		scanner.close();
 		
