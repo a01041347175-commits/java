@@ -95,6 +95,93 @@ public class ArrayEX {
 		for (int i = 0; i < averages.length; i++) {
 			System.out.println(averages[i]);
 		}
+		
+		// 배열 복사
+		int number1 = 10;
+		int number2 = 20;
+		System.out.println("number1: " + number1);
+		System.out.println("number2: " + number2);
+		
+		number2 = number1;
+		System.out.println("number1: " + number1);
+		System.out.println("number2: " + number2);
+		
+		number1 = 100;
+		System.out.println("number1: " + number1);
+		System.out.println("number2: " + number2);
+		
+		int[] numbers = {1, 2, 3};
+		int[] numbersCopy = numbers;
+		
+		System.out.println("numbers: " + numbers);
+		System.out.println("numbersCopy: " + numbersCopy);
+		
+		for(int i = 0; i < numbers.length; i++) {
+			System.out.printf("numbers[%d]: %d\n", i, numbers[i]);
+		}
+		for(int i = 0; i < numbersCopy.length; i++) {
+			System.out.printf("numbersCopy[%d]: %d\n", i, numbersCopy[i]);
+		}
+		numbers[0] = 100;
+		System.out.println(numbersCopy[0]);
+		
+		// 깊은 복사
+		// int[] numbers = {1, 2, 3}; --> int[] numbersDeepCopy
+		int[] numbersDeepCopy = new int[numbers.length];
+		for (int i = 0; i < numbers.length; i++) {
+			numbersDeepCopy[i] = numbers[i];
+		}
+		for (int i = 0; i < numbersDeepCopy.length; i++) {
+			System.out.printf("numberDeepCopy[%d]: %d\n", i, numbersDeepCopy[i]);
+		}
+		for(int i = 0; i < numbers.length; i++) {
+			System.out.printf("numbers[%d]: %d\n", i, numbers[i]);
+		}
+		numbersDeepCopy[2] = 3000;
+		System.out.println("numbersDeepCopy[2]: " + numbersDeepCopy[2]);
+		System.out.println("numbers[2]: " + numbers[2]);
+		
+		// 배열 삭제
+		int[] myScores = {80, 90, 100};
+		System.out.println("myScores: " + myScores);
+		
+		myScores = null;
+		System.out.println("myScores: " + myScores);
+		
+		// 2차원 배열
+//		int [][] mns = new int [3][2];
+//		System.out.println("mns: " + mns);
+		/*
+		 * int[] myScores == int myScores[] 후자는 잘 사용하지는 않는다.
+		 * int [][] mns == int mns[][] 역시 후자는 잘 사용하지 않는다.
+		 */
+		// 2차원 배열 선언 1.
+//		int[][] mns = {{1,2}, {10, 20}, {100, 200}};
+		
+		// 2차원 배열 선언 2.
+		/*
+		int[][] mns = new int[3][2];
+		mns[0][0] = 1;
+		mns[0][1] = 2;
+		mns[1][0] = 10;
+		mns[1][1] = 20;
+		mns[2][0] = 100;
+		mns[2][1] = 200;
+		*/
+		
+		// 2차원 배열 선언 3.
+		int [][] mns = new int[][] {{1,2}, {10, 20}, {100, 200}};
+		
+		// 2차원 배열 데이터 조회
+		System.out.println(mns[0]);  // 2차원 배열의 주소값이 출력
+		System.out.println(mns[0][0]);  // 2차원 배열의 값 출력
+//		System.out.println(mns[0][2]);  // 에러 발생
+		
+		mns[0][0] = 1000;
+		System.out.println(mns[0][0]);
+		
+		
+		
 	}
 
 }
