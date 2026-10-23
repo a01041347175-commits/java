@@ -74,7 +74,7 @@ public class MainClass {
 				
 				memberInfos = members.get(memberID);
 				for (int i = 0; i < memberInfos.length; i++) {
-					System.out.println(memberInfos[i]);
+					System.out.println(member Infos[i]);
 				}
 				
 				// for each
@@ -97,22 +97,18 @@ public class MainClass {
 				String[] searchedMember = members.get(memberID);
 				System.out.println("searchedMember: " + searchedMember);
 				
-				if (searchedMember != null) {
-					
-					if(searchedMember[1].equals(memberPW)) {
+				if (searchedMember != null && searchedMember[1].equals(memberPW)) {
 						// ID, PW 일치 == 로그인성공
 						System.out.println("SIGN-IN SUCCESS");	
-					} else {
+					
 						// PW불일치 == 로그인 실패
-						System.out.println("SIGN-IN FAIL");
-					}		
 				} else {
 					// ID 불일치 == 로그인 실패
 					System.out.println("SIGN-IN FAIL");
 				}
 				
 				break;
-			
+		
 			case MENU_MODIFY:					// MODIFY(정보수정)
 				
 				System.out.println("Input member ID");
@@ -146,11 +142,25 @@ public class MainClass {
 				
 			case MENU_DELETE:					// DELETE(탈퇴)
 				
+				System.out.println("Input member ID");
+				memberID = scanner.next();
 				
+				System.out.println("Input member PW");
+				memberPW = scanner.next();
 				
+				memberInfos = members.get(memberID);
+				if (memberInfos != null && memberInfos[1].equals(memberPW)) {
+					
+						members.remove(memberID);
+						
+						System.out.println("삭제 처리 이후: " + members.get(memberID)); ;
+					
+				} else {
+					System.out.println("존재하지 않는 ID 입니다.");
+				}
 				break;
 				
-			case END:					// DELETE(탈퇴)
+			case END:					
 				System.out.println("Gooooooood bye!");
 				systemFlag = false;
 				break;
