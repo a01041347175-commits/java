@@ -22,6 +22,7 @@ public class MainClass {
 		Student student3 = new Student("박세리", 3, 22, "Sports");
 		student3.printInfo();
 		
+		// 학생 개채를 생성할때 학생이 소유하고 있는 차 객체도 생성한다.
 		
 		
 	}
