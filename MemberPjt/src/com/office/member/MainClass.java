@@ -74,7 +74,7 @@ public class MainClass {
 				
 				memberInfos = members.get(memberID);
 				for (int i = 0; i < memberInfos.length; i++) {
-					System.out.println(member Infos[i]);
+					System.out.println(memberInfos[i]);
 				}
 				
 				// for each
