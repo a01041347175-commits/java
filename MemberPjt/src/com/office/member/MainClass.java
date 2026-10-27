@@ -160,7 +160,8 @@ public class MainClass {
 				}
 				break;
 				
-			case END:					
+			case END:				
+				
 				System.out.println("Gooooooood bye!");
 				systemFlag = false;
 				break;
