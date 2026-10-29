@@ -1,25 +1,21 @@
 package com.office.member;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class MainClass {
 
 	public static void main(String[] args) {
 		
-		final int SIGN_UP = 1;
-		final int SIGN_IN = 2;
-		final int MODIFY = 3;
-		final int DELETE = 4;
-		final int SYSTEM_OUT = 99;
-		
 		Scanner scanner = new Scanner(System.in);
+//		Flag flag = new Flag();
 		boolean systemFlag = true;
-		boolean isDevMode = true;
+		Config config = new Config();
 		
 		MemberDB memberDB = new MemberDB();
 		MemberService memberService = new MemberService(memberDB);
 		
-		if (isDevMode) {
+		if (config.IS_DEV_MODE) {
 			MemberDumy memberDumy = new MemberDumy(memberDB);
 			memberDumy.initMemberDumyData();
 		} else {
@@ -31,16 +27,16 @@ public class MainClass {
 		
 		while (systemFlag) {
 			
-			System.out.println("1. SIGN-UP    2. SIGN-IN    3. MODIFY    5. DELETE    99. SYSTEM-OUT");
+			System.out.println("1. SIGN-UP    2. SIGN-IN    3. MODIFY    4. DELETE    5. PRINT-ALL-MEMBER    99. SYSTEM-OUT");
 			int selectedMenu = scanner.nextInt();
 			
 			switch (selectedMenu) {
-			case SIGN_UP:				//SIGN-UP
+			case Menu.SIGN_UP:				//SIGN-UP
 				// memberService = new MemberService();
 				memberService.doSignUp(scanner);
 				break;
 				
-			case SIGN_IN:				// SIGN-IN
+			case Menu.SIGN_IN:				// SIGN-IN
 				// memberService = new MemberService();
 				memberService.doSignIn(scanner);
 				
@@ -50,22 +46,40 @@ public class MainClass {
 				}
 				break;
 				
-			case MODIFY:				// MODIFY
+			case Menu.MODIFY:				// MODIFY
 				memberService.doModify(scanner);
 				break;
 		
-			case DELETE:				// DELETE
+			case Menu.DELETE:				// DELETE
 				memberService.doDelete(scanner);
 				break;
 				
-			case SYSTEM_OUT:			// SYSTEM-OUT
+			case Menu.PRINT_ALL_MEMBER:		// ALL-MEMBER
+				HashMap<String, Member> db =  memberDB.memberDB;
+				
+				for(String key : db.keySet()) {
+					Member member = db.get(key);
+					System.out.println(member.memberId);
+					System.out.println(member.memberPw);
+					System.out.println(member.memberMail);
+					System.out.println(member.memberPhone);
+				}
+				
+				for (Member member : db.values()) {
+					System.out.println(member.memberId);
+					System.out.println(member.memberPw);
+					System.out.println(member.memberMail);
+					System.out.println(member.memberPhone);
+				}
+				
+			case Menu.SYSTEM_OUT:			// SYSTEM-OUT
 				systemFlag = false;
 				System.out.println("Say Goodbye");
 				break;	
 				
 				/*
 				 * 과제2 : case에 사용되는 리터럴상수를 상수로 변경 (해결)
-				 * 과제3 : 5번 메뉴를 만들어서 -> 전체 회원 정보 출력 기능 구현
+				 * 과제3 : 5번 메뉴를 만들어서 -> 전체 회원 정보 출력 기능 구현 (해결)
 				 */
 			
 			}

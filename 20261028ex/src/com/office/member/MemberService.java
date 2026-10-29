@@ -19,14 +19,35 @@ public class MemberService {
 		System.out.println("Input new memeber ID");
 		String memberId = scanner.next();
 		
+		// 교수님 
+//		while (true) {
+//			Member member = db.memberDB.get(memberId);
+//			if (member != null) {
+//				System.out.println("Input new memeber ID");
+//				memberId = scanner.next();
+//			} else {
+//				break;
+//			}
+//		}
+		
 		// 과제 4
 		if (db.memberDB.get(memberId) != null) {
 			System.out.println("아이디 중복, 다른 아이디를 입력하세요.");
 			return;
-		}
+		} 
 		
 		System.out.println("Input new memeber PW(8~12자리 입력)");
 		String memberPw = scanner.next();
+		
+		// 교수님
+//		while (true) {
+//			if (memberPw.length() < 8 || memberPw.length() > 12) {
+//				System.out.println("Input new memeber PW(8~12자리 입력)");
+//				memberPw = scanner.next();
+//			} else {
+//				break;
+//			}
+//		}
 		
 		// 과제 5
 		if (memberPw.length() < 8 || memberPw.length() > 12) {
@@ -79,7 +100,9 @@ public class MemberService {
 				System.out.println("PW ERROR");
 			}
 		}
-	
+		
+		// 교수님
+		
 		
 		/*
 		 * 과제6 : 로그인 실패가 3회 초과시 시스템 종료(해결)
