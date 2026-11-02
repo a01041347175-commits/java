@@ -1,6 +1,8 @@
 package com.office.inheri.restaurant;
 
-public class ChildRestaurant extends ParentRestaurant {
+public class ChildRestaurant 
+					extends ParentRestaurant 
+					implements CheckList, CheckList2 {
 
 	public final static int PARENT_MENU = 1;
 	public final static int CHILD_MENU = 2;
@@ -22,5 +24,25 @@ public class ChildRestaurant extends ParentRestaurant {
 	public void makeTangsuyuk() {
 		System.out.println("자손 탕수육 만듦");
 	}
+
+	@Override
+	public void checkFloor() {
+			
+		
+	}
+
+	@Override
+	public void checkToilet() {
+		
+			
+	}
+
+	@Override
+	public void checkHwagu() {
+		
+		
+	}
+	
+	
 	
 }
