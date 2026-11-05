@@ -53,3 +53,5 @@ MVC 패턴
 
 DTO
 
+yolo8n-oiv7.pt
+yolo26n.pt

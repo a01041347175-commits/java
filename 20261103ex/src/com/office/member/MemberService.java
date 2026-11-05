@@ -2,7 +2,11 @@ package com.office.member;
 
 public class MemberService implements IMemberService {
 
-	MemberDao memberDao = new MemberDao();
+	final private MemberDao memberDao;
+	
+	public MemberService(MemberDao memberDao) {
+		this.memberDao = memberDao;
+	}
 	
 	@Override
 	public void signUp(MemberDto memberDto) {
@@ -46,8 +50,16 @@ public class MemberService implements IMemberService {
 	}
 
 	@Override
-	public void modify() {
-		// TODO Auto-generated method stub
+	public void modify(MemberDto memberDto) {
+		
+		MemberDto updatedMemberDto = 
+				memberDao.updateMemberByMemId(memberDto);
+		
+		if (updatedMemberDto != null) {
+			System.out.println("Modify success!!");
+		} else {
+			System.out.println("Modify fail!!");
+		}
 		
 	}
 
@@ -62,6 +74,13 @@ public class MemberService implements IMemberService {
 			System.out.println("탈퇴처리 실패");
 		}
 		
+	}
+
+	public boolean doAuthenticationByMemIdAndMemPw(MemberDto memberDto) {
+		
+		MemberDto dto = memberDao.searchMemberByMemIdAndMemPw(memberDto);
+		
+		return dto != null ? true : false;
 	}
 
 }

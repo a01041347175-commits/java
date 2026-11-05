@@ -4,11 +4,17 @@ import java.util.Scanner;
 
 public class MemberController implements MemberConfig {
 
+	final private MemberService memberService;
+	
+	public MemberController(MemberService memberService) {
+		this.memberService = memberService;
+	}
+	
 	public void execute() {
 		
 		Scanner scanner = new Scanner(System.in);
 		boolean systemFlag = true;
-		MemberService memberService = new MemberService();
+//		MemberService memberService = new MemberService();
 		
 		if (IS_DEV)
 			new MemberDumy().signUpForDumy(memberService);
@@ -57,7 +63,39 @@ public class MemberController implements MemberConfig {
 				
 				break;
 			case MODIFY:
-				memberService.modify();
+				/*
+				 * ID, PW 인증 완료시 PW, MAIL, PHONE 수정 가능
+				 */
+				System.out.println("Input member ID!!");
+				memId = scanner.next();
+				
+				System.out.println("Input member PW!!");
+				memPw = scanner.next();
+				
+				memberDto = new MemberDto(memId, memPw, null);
+				
+				boolean isAuthentication = 
+						memberService.doAuthenticationByMemIdAndMemPw(memberDto);
+				
+				if (isAuthentication) {
+					System.out.println("Imput member PW!!");
+					memPw = scanner.next();
+					
+					System.out.println("Input member MAIL!!");
+					memMail = scanner.next();
+					
+					System.out.println("Input member PHONE!!");
+					memPhone = scanner.next();
+					
+					memberDto.setMemPw(memPw);
+					memberDto.setMemMail(memMail);
+					memberDto.setMemPhone(memPhone);
+					
+					memberService.modify(memberDto);
+					
+				}
+				
+				
 				break;
 			case DELETE:
 				/*
