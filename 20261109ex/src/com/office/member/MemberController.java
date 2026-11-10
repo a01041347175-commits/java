@@ -2,6 +2,7 @@ package com.office.member;
 
 import java.util.Scanner;
 
+import com.office.config.Config;
 import com.office.menu.Menu;
 import com.office.session.Session;
 
@@ -23,65 +24,107 @@ public class MemberController {
 		
 		switch (selectedMenu) {
 		case Menu.MEMBER_SIGN_UP:
-			System.out.println("Input new member ID");
+			
+			System.out.println("Input new member ID!!");
 			memId = scanner.next();
 			
-			System.out.println("Input new member PW");
+			System.out.println("Input new member PW!!");
 			memPw = scanner.next();
 			
-			System.out.println("Input new member MAIL");
+			System.out.println("Input new member MAIL!!");
 			memMail = scanner.next();
 			
-			System.out.println("Input new member PHONE");
+			System.out.println("Input new member PHONE!!");
 			memPhone = scanner.next();
 			
-			int resultForSignUp = memberService.signUp(
+			int resultForSignUp = memberService.singUp(
 					new MemberDto(memId, memPw, memMail, memPhone));
 			
 			if (resultForSignUp == MemberService.SIGN_UP_SUCCESS) {
-				System.out.println("SIGN-UP SUCCEESS");
+				System.out.println("SIGN-UP SUCCESS!!");
 				
 			} else {
-				System.out.println("SIGN-UP FAIL");
+				System.out.println("SIGN-UP FAIL!!");
 				
 			}
 			
 			break;
-
+			
 		case Menu.MEMBER_SIGN_IN:
 			
-			System.out.println("Input member ID");
+			System.out.println("Input new member ID!!");
 			memId = scanner.next();
 			
-			System.out.println("Input member PW");
+			System.out.println("Input new member PW!!");
 			memPw = scanner.next();
 			
 			MemberDto signInedMemberDto = memberService.signIn(
 													new MemberDto(memId, memPw, null, null));
 			
 			if (signInedMemberDto != null) {
-				System.out.println("SIGN-IN SUCCESS");
+				System.out.println("SIGN-IN SUCCESS!!");
 				Session.getInstance().setAttribute(
-						"signInedMemberId", 
+						Config.SIGNINED_MEMBER_ID, 
 						signInedMemberDto.getMemId());
 				
 			} else {
-				System.out.println("SIGN-IN FAIL");
+				System.out.println("SIGN-IN FAIL!!");
+				
 			}
-			
+
 			break;
 			
 		case Menu.MEMBER_SIGN_OUT:
+			
+			Session.getInstance().removeAttribute(Config.SIGNINED_MEMBER_ID);
 			
 			break;
 			
 		case Menu.MEMBER_MODIFY:
 			
+			MemberDto signIndMemberDto = memberService.getMemeber();
+			
+			System.out.println("MemberID: " + signIndMemberDto.getMemId());
+			System.out.println("MemberPW: " + signIndMemberDto.getMemPw());
+			System.out.println("MemberMAIL: " + signIndMemberDto.getMemMail());
+			System.out.println("MemberPHONE: " + signIndMemberDto.getMemPhone());
+			
+			System.out.println("Input new member PW!!");
+			memPw = scanner.next();
+			
+			System.out.println("Input new member MAIL!!");
+			memMail = scanner.next();
+			
+			System.out.println("Input new member PHONE!!");
+			memPhone = scanner.next();
+			
+			int resultForModify = 
+					memberService.modify(new MemberDto(
+							String.valueOf(Session.getInstance().getAttribute(Config.SIGNINED_MEMBER_ID)), 
+							memPw, 
+							memMail, 
+							memPhone));
+			
+			if (resultForModify == MemberService.MODIFY_SUCCESS) {
+				System.out.println("MEMBER UPDATE SUCCESS");
+			} else {
+				System.out.println("MEMBER UPDATE FAIL");
+			}
+			
 			break;
 			
 		case Menu.MEMBER_DELETE:
-	
+			int resultForDelete = memberService.delete(
+					String.valueOf(Session.getInstance().getAttribute(Config.SIGNINED_MEMBER_ID)));
+					
+			if (resultForDelete == MemberService.DELETE_SUCCESS) {
+				System.out.println("MEMBER DELETE SUCCESS");
+				Session.getInstance().removeAttribute(Config.SIGNINED_MEMBER_ID);
+			} else {
+				System.out.println("MEMBER DELETE FAIL");
+			}
 			break;
+
 		}
 		
 	}

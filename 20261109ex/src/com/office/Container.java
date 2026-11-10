@@ -25,11 +25,11 @@ public class Container {
 	
 	private Container() {
 		
-		this.homeController = new HomeController();
+		homeController = new HomeController();
 		
-		this.memberDao = new MemberDao(DiaryDb.getInstance());
-		this.memberService = new MemberService(this.memberDao);    // Dependency Injection
-		this.memberController = new MemberController(this.memberService);
+		memberDao = new MemberDao(DiaryDb.getInstance());
+		memberService = new MemberService(this.memberDao);
+		memberController = new MemberController(this.memberService);
 		
 		this.diaryDao = new DiaryDao(DiaryDb.getInstance());
 		this.diaryService = new DiaryService(this.diaryDao);
@@ -38,14 +38,17 @@ public class Container {
 	}
 	
 	public static Container getInstance() {
-		if (container == null) {
+		if (container == null)
 			container = new Container();
-		}
+		
 		return container;
 		
 	}
 
-	// getters
+	
+	/*
+	 * Getters
+	 */
 	public HomeController getHomeController() {
 		return homeController;
 	}
@@ -72,6 +75,6 @@ public class Container {
 
 	public DiaryDao getDiaryDao() {
 		return diaryDao;
-	}	
+	}
 	
 }

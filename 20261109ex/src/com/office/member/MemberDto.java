@@ -8,11 +8,10 @@ public class MemberDto {
 	private String memPhone;
 	
 	public MemberDto() {
-		
+
 	}
 
 	public MemberDto(String memId, String memPw, String memMail, String memPhone) {
-		super();
 		this.memId = memId;
 		this.memPw = memPw;
 		this.memMail = memMail;
@@ -50,8 +49,5 @@ public class MemberDto {
 	public void setMemPhone(String memPhone) {
 		this.memPhone = memPhone;
 	}
-	
-	
-	
 	
 }

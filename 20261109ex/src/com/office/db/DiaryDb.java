@@ -13,20 +13,22 @@ public class DiaryDb {
 	final private HashMap<String, MemberDto> members;
 	final private HashMap<String, ArrayList<DiaryDto>> diaries;
 	
-	public DiaryDb() {
+	private DiaryDb() {
 		members = new HashMap<String, MemberDto>();
 		diaries = new HashMap<String, ArrayList<DiaryDto>>();
 	}
 	
 	public static DiaryDb getInstance() {
-		if (diaryDb == null) {
+		if (diaryDb == null)
 			diaryDb = new DiaryDb();
-		}
+		
 		return diaryDb;
+		
 	}
-
-	// getters
 	
+	/*
+	 * Getters
+	 */
 	public HashMap<String, MemberDto> getMembers() {
 		return members;
 	}
